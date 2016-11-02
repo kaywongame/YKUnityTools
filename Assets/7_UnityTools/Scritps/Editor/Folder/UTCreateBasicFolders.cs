@@ -49,12 +49,14 @@ public class UTCreateBasicFolders: EditorWindow{
            m_FolderNames.Add("4_Materials");
            m_FolderNames.Add("5_Shaders");
            m_FolderNames.Add("6_Textures");
-			  m_FolderNames.Add("7_Music");
-			  m_FolderNames.Add("8_Sound");
+			m_FolderNames.Add("7_Music");
+			m_FolderNames.Add("8_Sound");
    
          m_FolderNames.Add("9_Prefabs");
-      }
-      
+            m_FolderNames.Add("10_Ani");
+
+        }
+
         m_Window.Show();           
     }
 
