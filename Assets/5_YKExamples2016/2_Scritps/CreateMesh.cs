@@ -5,7 +5,7 @@ public class CreateMesh : MonoBehaviour {
 
     public Vector3[] Vertex = new Vector3[]
     {
-        new Vector3(0,0,0),new Vector3(1,0,0),new Vector3(0,1,0),new Vector3(1,1,0) // 4 VERTEXES! (Plane has 4 vertexes)
+        new Vector3(-0.5f, -0.5f, 0),new Vector3(0.5f, -0.5f, 0),new Vector3(-0.5f, 0.5f, 0),new Vector3(0.5f, 0.5f, 0) // 4 VERTEXES! (Plane has 4 vertexes)
     };
 
     public Vector2[] UV_MaterialDisplay = new Vector2[]
@@ -21,20 +21,47 @@ public class CreateMesh : MonoBehaviour {
 
     public Renderer m_Renderer;
     public Material m_Material;
+	private MeshFilter m_MeshFilter;
+
+	void Start()
+	{
+		if(!m_Renderer)
+		{
+			m_Renderer = GetComponent<Renderer>();
+
+			if(!m_Renderer)
+			{
+				m_Renderer = gameObject.AddComponent<MeshRenderer>();
+			}
+			else
+			{
+				m_Material = m_Renderer.material;
+			}
+		}
+		
+		if (!m_MeshFilter) //If you will havent got any meshrenderer or filter
+		{
+			m_MeshFilter = GetComponent<MeshFilter>();
+
+			if(!m_MeshFilter)
+				m_MeshFilter = gameObject.AddComponent<MeshFilter>();
+				
+		}
+
+	}
 
     void Update()
     {
+		// Release memory for the mesh
+		if(m_MeshFilter.mesh)
+		{
+			m_MeshFilter.mesh.Clear();
+		}
+
+		// Create the mesh
+		Mesh mesh = new Mesh();
         
-        Mesh mesh = new Mesh();
-        transform.GetComponent<MeshFilter>();
-
-        if (!transform.GetComponent<MeshFilter>() || !transform.GetComponent<MeshRenderer>()) //If you will havent got any meshrenderer or filter
-        {
-            transform.gameObject.AddComponent<MeshFilter>();
-            transform.gameObject.AddComponent<MeshRenderer>();
-        }
-
-        transform.GetComponent<MeshFilter>().mesh = mesh;
+        m_MeshFilter.mesh = mesh;
 
         mesh.name = "MyOwnObject";
 

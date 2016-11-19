@@ -9,9 +9,9 @@ public class RawImageExtended : RawImage {
 	public Vector3 m_TestVec3 = Vector3.one;
 	
 	public Vector3[] m_Verts = { 	new Vector3 ( 	0f, 	50f), 
-                         			new Vector3 ( 100f, -50f),
-											new Vector3 ( 	-100f, -50f)
-										};
+                         			new Vector3 ( -100f, -50f),
+									new Vector3 (  100f, -50f)
+								};
 
 	protected override void OnPopulateMesh(VertexHelper vh)
         {
