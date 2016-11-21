@@ -7,18 +7,33 @@ using System.Collections;
 [CustomEditor(typeof(RawImageExtended))]
 public class RawImageExtendedEditor :  UnityEditor.UI.RawImageEditor {
 
+	SerializedProperty m_TestCurve;
+	SerializedProperty m_Verts;
+	
+	protected override void OnEnable()
+	{
+	   base.OnEnable();
+	   m_TestCurve           = serializedObject.FindProperty("m_TestCurve");
+	   m_Verts            = serializedObject.FindProperty("m_Verts");
+	
+	}
+
 	public override void OnInspectorGUI() {
+		base.OnInspectorGUI();
 
-    RawImageExtended component = (RawImageExtended)target;
+		serializedObject.Update();
 
-    base.OnInspectorGUI();
+		EditorGUILayout.PropertyField(m_TestCurve);
+		EditorGUILayout.PropertyField(m_Verts, true);
 
-//    component.onSprite = (Sprite)EditorGUILayout.ObjectField("On Sprite", component.onSprite, typeof(Sprite), true);
-//    component.onTextColor = EditorGUILayout.ColorField("On text colour", component.onTextColor);
-//    component.offSprite = (Sprite)EditorGUILayout.ObjectField("Off Sprite", component.offSprite, typeof(Sprite), true);
-//    component.offTextColor = EditorGUILayout.ColorField("Off text colour", component.offTextColor);
+		serializedObject.ApplyModifiedProperties();
+//		RawImageExtended component = (RawImageExtended)target;
+//		
+//		EditorGUILayout.ColorField("Test Color", Color.red);
+//		EditorGUILayout.CurveField("Test Curve", m_TestCurve);
+//		EditorGUILayout.Vector3Field("Test Vector3", component.m_Verts[0]);
 
-}
+	}
 
 }
 
