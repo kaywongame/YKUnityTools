@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace YKUnityTools
+{
+
+
 public class GameManager : MonoBehaviour {
 
     // Constant Values
@@ -130,7 +134,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 }
-
+}
 
 
 
