@@ -2,14 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[ExecuteInEditMode]
 public class RandomPosSpawner : MonoBehaviour {
 
 	public Vector3 m_SizeVec = Vector3.one;
-	
+	public int m_NumOfSpawn = 100;
+	public GameObject m_SpawnGO;
 
 	// Use this for initialization
 	void Start () {
+		float halfX = m_SizeVec.x * 0.5f;
+		float halfY = m_SizeVec.y * 0.5f;
+		float halfZ = m_SizeVec.z * 0.5f;
 		
+		// Temporary child
+		GameObject childGO = new GameObject("TempChild");
+		childGO.transform.parent = transform;
+		childGO.transform.localPosition = Vector3.zero;
+
+		for (int i = 0; i < m_NumOfSpawn; i++)
+		{
+			childGO.transform.localPosition =new Vector3(
+				Random.Range(-halfX, halfX),
+				Random.Range(-halfY, halfY),
+				Random.Range(-halfZ, halfZ));
+
+			Instantiate(m_SpawnGO, childGO.transform.position, Random.rotationUniform, transform).isStatic = true;
+		}
+
+		Destroy(childGO);
 	}
 	
 
@@ -36,9 +57,7 @@ public class RandomPosSpawner : MonoBehaviour {
 		for (int x = -1; x < 2; x+=2) {
 			for (int y = -1; y < 2; y+=2) {
 				for (int z = -1; z < 2; z+=2) {
-
 					poss[i++] = transform.position + rightOffset * x + upOffset * y + frontOffset * z;
-					
 				}
 			}
 		}
