@@ -70,7 +70,7 @@ public class CreateMesh : MonoBehaviour {
         mesh.uv = UV_MaterialDisplay;
 
         mesh.RecalculateNormals();
-        mesh.Optimize();
+        ;
         m_Renderer.material = m_Material; //If you want a material.. you have it :)
 
     }

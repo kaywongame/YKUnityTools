@@ -52,7 +52,7 @@ public class GenerateMesh : MonoBehaviour {
         mesh.vertices = newVertices.ToArray();
         mesh.triangles = newTriangles.ToArray();
         mesh.uv = newUV.ToArray(); // add this line to the code here
-        mesh.Optimize();
+        ;
         mesh.RecalculateNormals();
     }
 	
