@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: dbaafa7af1d674f96a2f96222874e228
 folderAsset: yes
 timeCreated: 1480742382
 licenseType: Pro
+=======
+guid: 75c6a22af99adeb4883335431349cd90
+folderAsset: yes
+timeCreated: 1478050704
+licenseType: Free
+>>>>>>> kaywongame/master
 DefaultImporter:
   userData: 
   assetBundleName: 
