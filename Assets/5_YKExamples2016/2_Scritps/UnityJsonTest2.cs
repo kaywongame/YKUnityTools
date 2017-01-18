@@ -18,7 +18,7 @@ public class UnityJsonTest2 : MonoBehaviour {
 	[Serializable]
 	public class MyClassArray
 	{
-		public MyClass[] classArray = new MyClass[2];
+		public List<MyClass> classArray = new List<MyClass>();
 	}
 
 	//public MyClass[] m_DataArray = new MyClass[3];
