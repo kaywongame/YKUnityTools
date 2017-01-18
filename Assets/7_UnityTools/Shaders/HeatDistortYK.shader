@@ -98,13 +98,13 @@ CGPROGRAM
 
 		// Step 5: More exact expression
 		half2 bump = UnpackNormal(tex2D(_BumpMap, i.uvbump)).rg * _BumpAmt;
-      half4 bumpProj =  half4(bump.r + i.grabPos.x, 
-										bump.g + i.grabPos.y, 
+		half4 bumpProj =  half4(bump.r + i.grabPos.x, 
+							bump.g + i.grabPos.y, 
 										 0.0, 
-										 i.grabPos.w);
+							i.grabPos.w);
 		half4 bgcolor = tex2Dproj(_BackgroundTexture, bumpProj);
 		return bgcolor;
-
+		
 	}
 
 		ENDCG
