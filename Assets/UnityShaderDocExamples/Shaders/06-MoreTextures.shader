@@ -26,6 +26,7 @@ Shader "Unlit/More Textures"
                 float2 uv : TEXCOORD4;
                 float4 pos : SV_POSITION;
             };
+
             v2f vert (float4 vertex : POSITION, float3 normal : NORMAL, float4 tangent : TANGENT, float2 uv : TEXCOORD0)
             {
                 v2f o;
