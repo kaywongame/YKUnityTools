@@ -2,7 +2,7 @@
 // Fixed for Unity 5
 // Jan. 12. 2017
 
-Shader "Distort_YK"
+Shader "Custom/Distort_YK"
 {
 	Properties{
 		_BumpAmt("Distortion", range(0,1)) = 0.1
