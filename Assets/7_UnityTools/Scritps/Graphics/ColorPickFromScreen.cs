@@ -35,7 +35,7 @@ public class ColorPickFromScreen : MonoBehaviour
 		m_MousePos = Input.mousePosition;
 		Ray ray = Camera.main.ScreenPointToRay (m_MousePos);
 		if (Physics.Raycast (ray, out m_Hit, 100f)) {
-			Debug.DrawRay (m_Hit.point, m_Hit.normal, Color.blue);
+			Debug.DrawRay (m_Hit.point, m_Hit.normal, Color.white);
 		}
 
 		// Application.CaptureScreenshot("Assets/savedmeshes/assets/ " + "Screenshot.png");
