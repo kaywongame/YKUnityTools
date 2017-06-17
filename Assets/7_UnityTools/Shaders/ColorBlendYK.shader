@@ -1,4 +1,6 @@
-﻿Shader "Custom/BlendColorYK" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/BlendColorYK" {
 	Properties{
 		_MainTex("Base", 2D) = "white" {}
 		_TintColor("TintColor", Color) = (0.5, 0.5, 0.5, 0.5)
@@ -21,7 +23,7 @@
 	v2f vert(appdata_full v) {
 		v2f o;
 
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		o.pos = UnityObjectToClipPos(v.vertex);
 		o.uv.xy = v.texcoord.xy;
 
 		return o;

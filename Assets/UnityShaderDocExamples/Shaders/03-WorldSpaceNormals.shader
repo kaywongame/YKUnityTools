@@ -26,7 +26,7 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 c = 0;
-                c.rgb = i.worldNormal*0.5+0.5;
+                c.rgb = i.worldNormal * 0.5 + 0.5;
                 return c;
             }
             ENDCG

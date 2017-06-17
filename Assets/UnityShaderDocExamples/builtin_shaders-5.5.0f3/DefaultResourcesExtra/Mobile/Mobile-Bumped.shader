@@ -13,15 +13,19 @@ SubShader {
 	Tags { "RenderType"="Opaque" }
 	LOD 250
 
+
 CGPROGRAM
 #pragma surface surf Lambert noforwardadd
+
 
 sampler2D _MainTex;
 sampler2D _BumpMap;
 
+
 struct Input {
 	float2 uv_MainTex;
 };
+
 
 void surf (Input IN, inout SurfaceOutput o) {
 	fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
@@ -32,5 +36,7 @@ void surf (Input IN, inout SurfaceOutput o) {
 ENDCG  
 }
 
+
 FallBack "Mobile/Diffuse"
 }
+
